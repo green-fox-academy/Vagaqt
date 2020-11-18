@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(assets/background.png);
+    background-position: center;
+}
+
+#top, #introduction, #wiki{
+    font-family: 'Goldman';
+    padding: 0px 10%;
+    margin: 0px auto;
+}
+
+#top{
+    height: 50px;
+    word-spacing: 15px;
+    text-align: right;
+    background-color: #333333;
+    background-image: url(assets/logo.svg);
+    background-repeat: no-repeat;
+    background-position: 10%;
+}
+
+p{
+    font-family: courier;
+    font-size: 18px;
+}
+
+.break{
+    font-size: 20px;
+    text-align: center;
+    margin: 55px auto;
+}
+
+a{
+    color: deeppink;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: consolas;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    top: 25%;
+}
+
+#introduction h1{
+    font-size: 48px;
+}
+
+#introduction h3{
+    font-family: consolas;
+    font-size: 26px;
+    color: deeppink;
+}
+
+#wiki h1{
+    padding: 0px 0px 35px;
+}
+#wiki p{
+    font-size: 16px;
+}

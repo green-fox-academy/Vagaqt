@@ -1,0 +1,57 @@
+#all{
+    margin: 2% 20% auto 20%;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+}
+#header-title{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+row{
+    width: 100%;
+}
+#my-name{
+    color: #3a3b3a;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 36px;
+    text-align: center;
+   
+}
+#anakin{
+    color: #3a3b3a;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 48px;
+    text-align: center;
+  
+}
+.section{
+    margin-top: 5%;
+    margin-bottom: 4%;
+    font-size: 20px;
+    font-weight: 600;
+}
+.quote{
+    content: no-close-quote;
+    margin: 5% 0 0 0;
+    padding: 5% 0 5% 0;
+    background-color: #424242;
+    color: whitesmoke;
+    font-size: 34px;
+    font-family: 'Abril Fatface', cursive;
+}
+.work-place{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1%;
+}
+.job-title{
+    font-size: 12px;
+    font-style: italic;
+}
+#personal-interests{
+    border-top: 2px solid black;
