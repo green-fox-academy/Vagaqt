@@ -38,6 +38,7 @@ public class DrawDiamond {
                     System.out.print(" ");
                 }
             }
+
             System.out.println();
         }
     }

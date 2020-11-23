@@ -21,6 +21,7 @@ public class ParameticAverage {
             a = sum.nextDouble();
             b = b + a;
         }
-        System.out.println("Sum: " + b+"Average: "+ b/numbers);
+        System.out.println("Sum: " + b+", Average: "+ b/numbers);
+
     }
 }
