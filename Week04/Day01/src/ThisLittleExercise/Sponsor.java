@@ -19,12 +19,11 @@ public class Sponsor extends Person {
 
     public Sponsor(String name, int age, String gender, String company) {
         super(name, age, gender);
-        this.company = "Google";
+        this.company = company;
     }
 
     public Sponsor() {
         this("Jane Doe", 30, "female", "Google");
-        this.hiredStudents = 0;
     }
 
     public int hire() {

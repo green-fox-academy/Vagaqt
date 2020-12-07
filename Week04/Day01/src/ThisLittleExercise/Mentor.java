@@ -13,7 +13,7 @@ package ThisLittleExercise;
 //        Mentor(name, age, gender, level)
 //        Mentor(): sets name to Jane Doe, age to 30, gender to female, level to intermediate
 public class Mentor extends Person {
-    public String level;
+    public String level= "intermediate";
 
     public Mentor(String name, int age, String gender, String level) {
         super(name, age, gender);
@@ -22,7 +22,6 @@ public class Mentor extends Person {
 
     public Mentor() {
         super("Jane Doe", 30, "female");
-        this.level = "intermediate";
     }
 
     @Override

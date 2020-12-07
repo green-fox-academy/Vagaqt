@@ -20,9 +20,9 @@ public class Person {
     public String gender;
 
     public Person(String name, int age, String gender) {
-        this.name = "Jane Doe";
-        this.age = 30;
-        this.gender = "female";
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
     }
     public Person(){
         this("Jane Doe", 30,"female");

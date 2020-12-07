@@ -25,14 +25,12 @@ public class Cohort {
         this.name = name;
     }
 
-    public ArrayList addStudent(Student student) {
+    public void addStudent(Student student) {
         students.add(student);
-        return null;
     }
 
-    public ArrayList addMentor(Mentor mentor) {
+    public void addMentor(Mentor mentor) {
         mentors.add(mentor);
-        return null;
     }
 
     public void info() {
