@@ -17,10 +17,6 @@ public class Flower extends Garden {
     public Flower(String colour) {
     }
 
-    public void addFlower(Flower flower) {
-        flowers.add(flower);
-
-    }
 
     public void checkFlowerWater(Flower flower) {
         if (flower.waterAmount < 5.0)

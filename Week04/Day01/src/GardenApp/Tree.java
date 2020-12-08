@@ -16,9 +16,7 @@ public class Tree extends Garden {
     }
     public Tree(String colour);
 
-    public void addTree(Tree tree) {
-        trees.add(tree);
-    }
+
 
     public void checkTreeWater(Tree tree) {
         if (tree.waterAmount < 10)
