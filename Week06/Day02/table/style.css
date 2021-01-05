@@ -1,0 +1,28 @@
+body{
+    background-color: #386dff;
+}
+table{
+    width: 400px;
+    border-spacing: 0px;
+    margin: 10px;
+}
+
+th{
+    text-align: left;
+    background-color: black;
+}
+tr:nth-child(odd){
+    background-color: gray;
+}
+tr:nth-child(even){
+    background-color: honeydew;
+}
+table, th, td{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid grey;
+    color: #444444;
+}
+
+th,td{
+    padding: 15px 20px 15px 20px;
+}
