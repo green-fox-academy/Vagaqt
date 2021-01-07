@@ -1,0 +1,10 @@
+table, th, td{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid grey;
+    text-align: center;
+    padding: 2px 5px 2px 5px;
+}
+.fa-crown {
+    color: goldenrod;
+
+}

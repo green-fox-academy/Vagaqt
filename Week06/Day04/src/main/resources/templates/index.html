@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Lion King Animal Banking</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<p th:text="'Hello '+${name}+'!'"></p>
+
+<h3>Welcome to Lion King Animal Banking</h3>
+<br>
+<table>
+    <tr><th>Index</th><th>Animal Name</th><th>Animal Type</th><th>King?</th><th>Balance</th><th>Currency</th></tr>
+    <tr th:each="account: ${accounts}">
+        <td th:text="${account.index}"/>
+        <td th:text="${account.name}"/>
+        <td th:text="${account.animalType}"/>
+        <td>
+            <span th:if="${account.isKing}"><i class="fas fa-crown"></i></span>
+            <span th:unless="${account.isKing}"></span>
+        </td>
+        <td th:text="${account.balance}+'0'"/>
+        <td th:text="${account.currency}"/>
+    </tr>
+</table>
+<h4>
+    Add new Account
+</h4>
+<form action="/save-account" method="post">
+    <label for="name"> Name </label>
+    <input type="text" id="name" name="name">
+
+    <label for="balance" > Balance </label>
+    <input type="number" id="balance" name="balance">
+
+    <label for="animalType" > Animal Type </label>
+    <input type="text" id="animalType" name="animalType">
+
+    <p>Is it a King</p>
+    <input type="radio" id="isKing" name="isKing" value="true">
+    <label for="isKing">Yes</label><br>
+
+    <input type="radio" id="isKing" name="isKing" value="false">
+    <label for="isKing">No</label><br>
+
+    <button type="submit"> Save</button>
+</form>
+</body>
+</html>
