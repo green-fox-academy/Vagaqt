@@ -7,34 +7,39 @@
     <title>Title</title>
 </head>
 <body>
-<p th:text="'Hello '+${name}+'!'"></p>
 
-<h3>My shop</h3>
+<header>My shop</header>
 <br>
-<span th:if="${averageStockCalled}" th:text="'Average Stock: '+${averageStock}"></span>
+<span class="stock" th:if="${averageStockCalled}" th:text="'Average Stock: '+${averageStock}"></span>
 <span th:unless="${averageStockCalled}"></span>
 <br>
-<!--<form>-->
-    <button onclick="location.href='/only-available'" type="button">Only Available</button>
-    <button onclick="location.href='/cheapest-first'" type="button">Cheapest First</button>
-    <button onclick="location.href='/contains-nike'" type="button">Contains Nike</button>
-    <button onclick="location.href='/average-stock'" type="button">Average Stock</button>
-    <button onclick="location.href='/most-expensive-first'" type="button">Most Expensive</button>
-<!--</form>-->
+<div class="buttons">
+<button onclick="location.href='/only-available'" type="button">Only Available</button>
+<button onclick="location.href='/cheapest-first'" type="button">Cheapest First</button>
+<button onclick="location.href='/contains-nike'" type="button">Contains Nike</button>
+<button onclick="location.href='/average-stock'" type="button">Average Stock</button>
+<button onclick="location.href='/most-expensive-first'" type="button">Most Expensive</button>
+<br>
+</div>
 
-
+<p class="searchtext">Search for:</p>
 <form action="/search" method="post">
-    <label for="search"> Name </label>
-    <input type="text" placeholder="...something like Nike" id="search" name="search">
-    <button onclick="location.href='/search'" type="submit"> Search</button>
+    <label for="search"></label>
+    <input type="text" class="searchfield" placeholder="...something like Nike" id="search" name="search">
+    <button class="searchbutton" onclick="location.href='/search'" type="submit"> Search</button>
 </form>
 <table>
-    <tr><th>Name</th><th>Description</th><th>Price</th><th>Quantity</th></tr>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
     <tr th:each="item: ${itemList}">
         <td th:text="${item.name}"/>
         <td th:text="${item.description}"/>
         <td th:text="${item.price}+'  '+${item.currency}"/>
-<!--        <td th:text="${item.currency}+'0'"/>-->
+        <!--        <td th:text="${item.currency}+'0'"/>-->
         <td th:text="${item.quantityOfStock}"/>
     </tr>
 </table>

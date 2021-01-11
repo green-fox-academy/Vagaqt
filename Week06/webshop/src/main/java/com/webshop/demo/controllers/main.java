@@ -1,5 +1,6 @@
 package com.webshop.demo.controllers;
 
+import com.webshop.demo.models.ItemList;
 import com.webshop.demo.models.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,19 @@ import java.util.stream.Collectors;
 
 @Controller
 public class main {
-    private List<ShopItem> itemList = new ArrayList<>();
+    //    private List<ShopItem> itemList = new ArrayList<>();
+    ItemList itemListt = new ItemList();
+    private List<ShopItem> itemList = itemListt.getItemList();
     boolean averageStockCalled = false;
 
-    public main() {
-        itemList.add(new ShopItem("asd Nike", "asdef", 10.0, "euro", 5));
-        itemList.add(new ShopItem("hfb", "Nike", 15.0, "euro", 10));
-        itemList.add(new ShopItem("kabd", "drqfeo", 20.0, "euro", 0));
-        itemList.add(new ShopItem("iue", "kbwernqnf", 12.0, "euro", 6));
-        itemList.add(new ShopItem("ouehwrn", "pr0huigbqf", 13.0, "euro", 9));
-    }
+    //    public main() {
+//        itemList.add(new ShopItem("asd Nike", "asdef", 10.0, "euro", 5));
+//        itemList.add(new ShopItem("hfb", "Nike", 15.0, "euro", 10));
+//        itemList.add(new ShopItem("kabd", "drqfeo", 20.0, "euro", 0));
+//        itemList.add(new ShopItem("iue", "kbwernqnf", 12.0, "euro", 6));
+//        itemList.add(new ShopItem("ouehwrn", "pr0huigbqf", 13.0, "euro", 9));
+//    }
+
 
     @GetMapping("")
     public String show(@RequestParam(required = false, defaultValue = "World!") String name, Model model) {
