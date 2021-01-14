@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="profile">
+    <h2 th:text="' This is '+${name}+'. YEP.'"></h2>
+<a href="https://emoji.gg/emoji/4810_YEP"><img src="https://emoji.gg/assets/emoji/4810_YEP.png" width="164px" height="164px" alt="YEP"></a>
+    <h3 th:text="' This is '+${name}+'s hunger: '+${hunger}"></h3>
+    <h3 th:text="' This is '+${name}+'s thirst: '+${thirst}"></h3>
+    <h3 th:text="' This is '+${name}+'s happiness: '+${happiness}"></h3>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="taskandinventory">
+
+    <p>this is where the picture goes</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Quant</th>
+            <!--            <th>Quantity</th>-->
+        </tr>
+        <tr th:each="item: ${itemlist}">
+            <!--/*@thymesVar id="treatName" type=""*/-->
+            <td th:text="${item.treatName}"/>
+            <td th:text="${item.boughtQuant}"/>
+            <!--            <td th:text="${item.quantityOfStock}"/>-->
+        </tr>
+    </table>
+
+</div>
+<div id="shop">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Shop</h1>
+    <br>
+
+    <h4 th:text="'Available money to spend: '+${dollar}"></h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <!--            <th>Quantity</th>-->
+        </tr>
+        <tr th:each="item: ${itemlist}">
+            <!--/*@thymesVar id="treatName" type=""*/-->
+            <td th:text="${item.treatName}"/>
+            <td th:text="${item.price}"/>
+            <!--            <td th:text="${item.quantityOfStock}"/>-->
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

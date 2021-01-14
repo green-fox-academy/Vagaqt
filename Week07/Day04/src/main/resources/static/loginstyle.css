@@ -1,0 +1,91 @@
+html{
+    background-color: rgb(204, 204, 204);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(124, 124, 124);
+    margin: 30% 30%;
+}
+body{
+    width: 360px;
+    margin: auto;
+    padding: 15px 50px 25px 50px;
+    background-color:white;
+    font-size: 10px;
+}
+p {
+    margin-bottom: 1px;
+    margin-top: 20px;
+}
+header{
+    font-size: 24px;
+    text-align: left;
+    padding-top: 15px;
+}
+.forgot p {
+    text-align: right;
+    margin-top: 1px;
+}
+.i {
+    color: black;
+}
+/*.Login p {*/
+/*    background-color: black;*/
+/*    width: 100px;*/
+/*    text-align: center;*/
+/*    padding-top: 5px;*/
+/*    padding-bottom: 5px;*/
+/*    border-radius: 7px;*/
+/*    font-style: oblique;*/
+/*    font-size: 12px;*/
+/*    font-weight: bold;*/
+/*}*/
+.inputfields{
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+input[type=text], textarea {
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 2px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+    line-height: 30px;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgb(81, 238, 141);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 238, 141);
+}
+input[type=password], textarea {
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 2px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+    line-height: 30px;
+}
+
+input[type=password]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 238, 141);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 238, 141);
+}
+
+button {
+    height: 35px;
+    color: white;
+    background-color: black;
+    width: 80px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 7px;
+    font-style: oblique;
+    font-size: 12px;
+    font-weight: bold;
+}
+.login p{
+    margin-top: 1px;
+
+}
