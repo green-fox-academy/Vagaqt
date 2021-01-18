@@ -13,6 +13,6 @@ import lombok.Setter;
 public class Pepe {
     private String name;
     private Integer hunger = 100;
-    private Integer thirst = 80;
-    private Integer happiness = 60;
+    private Integer thirst = 90;
+    private Integer happiness = 75;
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Edit todo</h1>
+
+<!--<form>-->
+<!--    Todo to modify:-->
+<!--    <input type="text" th:placeholder="${todo.title}" name="title"/>-->
+<!--    <br>-->
+<!--    <label>Urgent</label>-->
+<!--    <input id="urgent" type="checkbox" name="urgent" th:checked="${todo.urgent}"/>-->
+<!--    <br>-->
+<!--    <label>Done</label>-->
+<!--    <input id="done" type="checkbox" name="done" th:checked="${todo.done}"/>-->
+<!--    <br>-->
+<!--    <input type="submit" value="Edit">-->
+<!--</form>-->
+
+<form th:action="'/edit-todo/'+${todo.id}" method="post">
+    <label>Todo description</label>
+    <input type="text" th:placeholder="${todo.title}" name="title" th:value="${todo.title}"><br>
+    <label>Urgent</label>
+    <input id="urgent" type="checkbox" name="urgent" th:checked="${todo.urgent}"/><br>
+    <label>Done</label>
+    <input id="done" type="checkbox" name="done" th:checked="${todo.done}"/><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Todos for today</h2>
+<ul>Start the day</ul>
+<ul>Finish h2 workshop1</ul>
+<ul>Finish JPA workshop2</ul>
+<ul>Create CRUD Project</ul>
+
+
+<form action="/add-todo" method="post">
+    <label for="title"> Name </label>
+    <input type="text" id="title" name="title">
+    <br>
+    <input type="radio" id="yes" name="urgent" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="urgent" value="no">
+    <label for="no">No</label>
+    <br>
+
+    <button type="submit"> Save</button>
+</form>
+
+<table>
+    <tr th:each="todo: ${todoList}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.urgent}"></td>
+<!--        <td><a th:href="'/delete-pizza/' + ${pizza.id}">Delete by path variable</a></td>-->
+<!--        <td><a th:href="'/delete-pizza?id=' + ${pizza.id}">Delete by request param</a></td>-->
+    </tr>
+</table>
+
+
+</body>
+</html>

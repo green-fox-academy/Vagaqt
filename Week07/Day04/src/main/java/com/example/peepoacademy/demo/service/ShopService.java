@@ -33,4 +33,5 @@ public class ShopService {
         currentDolla -= 1000;
         pepe.setHappiness(pepe.getHappiness() + 40);
     }
+
 }

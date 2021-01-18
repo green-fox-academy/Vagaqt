@@ -16,4 +16,15 @@ public class StatusService {
     public Integer getPepeHappiness(){
         return pepe.getHappiness();
     }
+
+
+    public void setPepeHunger(int n){
+        pepe.setHunger(getPepeHunger()+n);
+    }
+    public void setPepeThirst(int n){
+        pepe.setThirst(getPepeThirst()+n);
+    }
+    public void setPepeHappiness(int n){
+        pepe.setHappiness(getPepeHappiness()+n);
+    }
 }

@@ -3,26 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+    body{
+        background-image: url([[@{(${background})}]]);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
 </head>
 <body>
-<div id="profile">
-    <h2 th:text="' This is '+${name}+'. YEP.'"></h2>
-<a href="https://emoji.gg/emoji/4810_YEP"><img src="https://emoji.gg/assets/emoji/4810_YEP.png" width="164px" height="164px" alt="YEP"></a>
-    <h3 th:text="' This is '+${name}+'s hunger: '+${hunger}"></h3>
-    <h3 th:text="' This is '+${name}+'s thirst: '+${thirst}"></h3>
-    <h3 th:text="' This is '+${name}+'s happiness: '+${happiness}"></h3>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div id="taskandinventory">
+<div id="container">
 
-    <p>this is where the picture goes</p>
-    <table>
+    <div id="profile">
+    <h2 th:text="' This is '+${name}+'. YEP.'"></h2>
+        <img div id="profilepic" th:attr="src=@{|/${mood}|}" height="150px" width="150px" border="4px solid black"/>
+ <div id="profiletext">
+    <h3 th:text="${name}+'\'s hunger: '+${hunger}"></h3>
+    <h3 th:text="${name}+'\'s thirst: '+${thirst}"></h3>
+     <h3 th:text="${name}+'\'s happiness: '+${happiness}"></h3></div>
+</div>
+
+<div id="taskandinventory">
+    <img id="maingif" th:attr="src=@{|/${gif}|}" height="250px" width="250px"/>
+<div id="buttons">
+    <button onclick="location.href='/?name=Pepe'" type="button">Back</button>
+    <button onclick="location.href='/coffee'" type="button">Drink Coffee</button>
+    <button onclick="location.href='/travel'" type="button">Travel</button>
+    <button onclick="location.href='/arriving'" type="button">Arriving</button>
+    <br>
+    <button onclick="location.href='/readyforwork'" type="button">Getting ready</button>
+    <button onclick="location.href='/work'" type="button">Work</button>
+    <button onclick="location.href='/workcoffee'" type="button">Coffee at Work</button>
+    <br>
+    <button onclick="location.href='/smokes'" type="button">Shopping</button>
+    <button onclick="location.href='/arrivingHome'" type="button">Arriving Home</button>
+    <button onclick="location.href='/FeelsLitMan'" type="button">Kicking in</button>
+    <br>
+    <button onclick="location.href='/pepejam'" type="button">Jamming</button>
+    <button onclick="location.href='/peepoChill'" type="button">Chill</button>
+    <button onclick="location.href='/peepoPizza'" type="button">Pizza</button>
+    <button onclick="location.href='/peepoJuice'" type="button">Juice</button>
+
+
+</div>
+    <h2 div id="inventorytext">Inventory</h2>
+    <table div id="inventory">
         <tr>
             <th>Name</th>
             <th>Quant</th>
@@ -38,16 +70,25 @@
 
 </div>
 <div id="shop">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <h1>Shop</h1>
     <br>
+    <label for="type">Shop items:</label>
+    <br>
+
+
+
+    <form action="/peeposhop" method="post"><label for="quantity">Qty:</label><br>
+        <select name="type" id="type">
+            <option  th:text="${item.getTreatName()}" th:value="${item.getTreatName()}" th:each="item: ${itemlist}">
+        </select>
+        <input type="number" id="quantity" name="quantity"><br>
+        <button class="btn" type="submit" id="shopbutton"><i class="fa fa-shopping-cart"></i></button>
+
+    </form>
 
     <h4 th:text="'Available money to spend: '+${dollar}"></h4>
-    <table>
+    <table id="shoptable">
         <tr>
             <th>Name</th>
             <th>Price</th>
@@ -62,6 +103,6 @@
     </table>
 
 </div>
-
+</div>
 </body>
 </html>

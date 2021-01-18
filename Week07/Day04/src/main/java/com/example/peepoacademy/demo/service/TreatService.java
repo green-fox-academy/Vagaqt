@@ -23,12 +23,27 @@ public class TreatService {
     PepeTreat grasshopper = new PepeTreat("Grasshopper", 50, 30, 120,0);
     PepeTreat brineShrimp = new PepeTreat("Brine Shrimp", 40, 60, 185,0);
     PepeTreat mouse = new PepeTreat("Mouse", 80, 60, 200,0);
+//
+//    public void buyItem(Integer quant, PepeTreat pepeTreat){
+//        pepeTreat.setBoughtQuant(pepeTreat.getBoughtQuant()+quant);
+//    }
 
-    public void buyItem(Integer quant, PepeTreat pepeTreat){
-        pepeTreat.setBoughtQuant(pepeTreat.getBoughtQuant()+quant);
+
+    public void shopping(String type, Integer n){
+        pepeTreatList.stream()
+                .filter(i -> i.getTreatName().equals(type))
+                .findFirst()
+                .ifPresent(p ->p.setBoughtQuant(p.getBoughtQuant()+n));
     }
 
+    public void eating (){
+        pepeTreatList.stream()
+                .filter(i -> i.getBoughtQuant()>0)
+                .findAny()
+                .ifPresent(p->p.setBoughtQuant(p.getBoughtQuant()-1));
+    }
     public List<PepeTreat> getPepeTreatsList() {
         return pepeTreatList;
     }
+
 }
