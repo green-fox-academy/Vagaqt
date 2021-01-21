@@ -13,10 +13,9 @@ public class DemoApplication implements CommandLineRunner {
     private ToDoRepo toDoRepo;
 
     @Autowired
-    public DemoApplication(ToDoRepo toDoRepo){
-        this.toDoRepo=toDoRepo;
+    public DemoApplication(ToDoRepo toDoRepo) {
+        this.toDoRepo = toDoRepo;
     }
-
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

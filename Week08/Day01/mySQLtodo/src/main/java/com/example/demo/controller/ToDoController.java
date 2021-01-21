@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ToDoController {
@@ -25,7 +26,7 @@ public class ToDoController {
     }
 
     @PostMapping("add-todo")
-    public String addPizza(@ModelAttribute ToDo toDo) {
+    public String addTodoPost(@ModelAttribute ToDo toDo) {
         addTodo(toDo);
         return "redirect:/";
     }
@@ -60,6 +61,11 @@ public class ToDoController {
         return "redirect:/";
     }
 
+    @PostMapping("/search")
+    public String search(@RequestParam String search, Model model) {
+        model.addAttribute("todoList", searchFuntion(search));
+        return "index";
+    }
 
     public List<ToDo> getAllTodos() {
         return (List<ToDo>) toDoRepo.findAll();
@@ -75,6 +81,12 @@ public class ToDoController {
 
     public void editTodo(Long id, String title, Boolean urgent, Boolean done) {
         toDoRepo.save(new ToDo(id, title, urgent, done));
+    }
+
+    private List<ToDo> searchFuntion(String search) {
+        return getAllTodos().stream()
+                .filter(s -> s.getTitle().contains(search))
+                .collect(Collectors.toList());
     }
 
 }

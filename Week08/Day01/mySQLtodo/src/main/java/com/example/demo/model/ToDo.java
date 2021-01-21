@@ -21,7 +21,7 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private Boolean urgent =  false;
+    private Boolean urgent = false;
 
     public ToDo(Long id, String title, Boolean urgent, Boolean done) {
         this.id = id;

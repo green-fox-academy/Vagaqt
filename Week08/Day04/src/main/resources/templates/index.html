@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h2>Trending posts</h2>
+
+
+<form action="/add-post" method="post">
+    <label for="title"> Name </label>
+    <input type="text" id="title" name="title">
+    <br>
+    <br>
+    <label for="content"> Content </label>
+    <input type="text" id="content" name="content">
+    <br>
+    <button type="submit"> Save</button>
+</form>
+<table>
+    <tr>
+<!--        <th>ID</th>-->
+        <th>UpVote Count</th>
+        <th>Title</th>
+    </tr>
+    <tr th:each="post: ${postList}">
+        <td><form th:action="'/upvote/' + ${post.id}" method="post">
+            <button type="submit" name="upvote"> + </button>
+        </form></td>
+        <td><form th:action="'/downvote/' + ${post.id}" method="post">
+            <button type="submit" name="downvote"> - </button>
+        </form></td>
+<!--        <td th:text="${post.id}"></td>-->
+        <td th:text="${post.upvotecount}"></td>
+        <td><a th:text="${post.title}" th:href="@{/view-post/{id}(id = ${post.id})}"></a></td>
+    </tr>
+</table>
+<div class="pagination_section">
+    <a href="#"><< Previous</a>
+    <a href="#" >1</a>
+    <a href="#" >2</a>
+    <a href="#" >3</a>
+    <a href="#" >4</a>
+    <a href="#" >5</a>
+    <a href="#">Next >></a>
+</div>
+<!--<div id="buttons">-->
+<!--    <button th:href="@{/{id}(id = ${post.id})}">-->
+<!--    Go</button>-->
+<!--</div>-->
+</body>
+</html>
