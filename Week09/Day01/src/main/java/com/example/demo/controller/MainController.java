@@ -1,18 +1,26 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.ArrayNumbers;
+import com.example.demo.model.LogEntry;
 import com.example.demo.model.UntilNumber;
+import com.example.demo.repository.LogEntryRepo;
 import com.example.demo.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MainController {
+    private LogEntryRepo logEntryRepo;
+    private MainService mainService;
+
 
     @Autowired
-    private MainService mainService;
+    public MainController(LogEntryRepo logEntryRepo, MainService mainService){
+        this.logEntryRepo = logEntryRepo;
+        this.mainService = mainService;
+    }
 
 
     @GetMapping("/doubling")
@@ -20,6 +28,7 @@ public class MainController {
         if (input==null){
             return ResponseEntity.ok(mainService.error("Please provide an input!"));
         }
+        mainService.addLogEntry(new LogEntry("/doubling", "\"input="+input +"\""));
         return ResponseEntity.ok(mainService.doubledInteger(input));
     }
 
@@ -56,5 +65,22 @@ public class MainController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
+    @PostMapping("/arrays")
+    public ResponseEntity<?> arrayHandler(@RequestBody ArrayNumbers numbers){
+        if (numbers.getWhat().equals("sum")){
+            return ResponseEntity.ok(mainService.arrayHandlerSum(numbers));
+        }
+        if (numbers.getWhat().equals("multiply")){
+            return ResponseEntity.ok(mainService.arrayHandlerMultiply(numbers));
+        }
+        if (numbers.getWhat().equals("double")){
+            return ResponseEntity.ok(mainService.arrayHandlerDouble(numbers));
+        }
+        return new ResponseEntity(mainService.error("Please provide a title!"), HttpStatus.BAD_REQUEST);
+    }
 
+    @GetMapping("/log")
+    public ResponseEntity<?> getLogEntries(){
+        return ResponseEntity.ok(mainService.getAllLogEntries());
+    }
 }

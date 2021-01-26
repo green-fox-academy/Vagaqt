@@ -7,8 +7,9 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
-public class SumValue {
+@Getter
+public class ArrayHandler {
     private Integer result;
 }
+
