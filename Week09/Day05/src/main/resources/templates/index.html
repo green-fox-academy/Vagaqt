@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h2>whatever message</h2>
+
+<span th:text="${aliasExist} ? 'work' : 'dont'"></span>
+
+<form action="/save-link" method="post">
+    <label for="url"> url </label>
+    <br>
+    <input type="text" id="url" name="url">
+    <br>
+    <label for="alias"> alias </label>
+    <br>
+    <input type="text" id="alias" name="alias">
+    <br>
+    <button type="submit"> Save</button>
+</form>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>url</th>
+        <th>alias</th>
+        <th>hitCount</th>
+        <th>secret code</th>
+    </tr>
+    <tr th:each="link: ${linkList}">
+        <td th:text="${link.id}"></td>
+        <td th:text="${link.url}"></td>
+        <td th:text="${link.alias}"></td>
+        <td th:text="${link.hitCount}"></td>
+        <td th:text="${link.secretCode}"></td>
+<!--        <td><a th:text="${post.title}" th:href="@{/view-post/{id}(id = ${post.id})}"></a></td>-->
+    </tr>
+</table>
+
+</body>
+</html>
