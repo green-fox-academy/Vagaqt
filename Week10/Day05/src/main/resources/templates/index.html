@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome Takeout App</title>
+</head>
+
+<body>
+<h1>Welcome to Green Fox Takeout!</h1>
+<br>
+<h2>Please enter your info and choose your meal</h2>
+
+<form action="/order" method="post">
+    <label for="name"> Name: </label>
+    <br>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="address"> Address: </label>
+    <br>
+    <input type="text" id="address" name="address">
+    <br>
+    Bases
+    <br>
+    <input type="radio" id="rice noodles" name="base" value="rice noodles">
+    <label for="rice noodles">Rice Noodles</label>
+    <br>
+    <input type="radio" id="egg noodles" name="base" value="egg noodles">
+    <label for="egg noodles">Egg Noodles</label>
+    <br>
+    <input type="radio" id="white rice" name="base" value="white rice">
+    <label for="white rice">White Rice</label>
+    <br>
+    <label for="topping">Toppings</label>
+    <br>
+    <select name="topping" id="topping">
+        <option value="chicken">Chicken</option>
+        <option value="beef">Beef</option>
+        <option value="smoked tofu">Smoked Tofu</option>
+    </select>
+
+    <br>
+
+    <button type="submit"> Order</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>url</th>
+        <th>alias</th>
+        <th>hitCount</th>
+        <th>secret code</th>
+    </tr>
+    <tr th:each="link: ${linkList}">
+        <td th:text="${link.id}"></td>
+        <td th:text="${link.url}"></td>
+        <td th:text="${link.alias}"></td>
+        <td th:text="${link.hitCount}"></td>
+        <td th:text="${link.secretCode}"></td>
+    </tr>
+</table>
+<div th:unless="${orderExist}" th:text="'Cant find order with ID: '+${order}"></div>
+<div th:if="${orderExist}">
+    <h2>Order details</h2>
+    <p th:text="'Name: '+${order.name}"></p>
+    <p th:text="'Address: '+${order.address}"></p>
+    <p th:text="'Base: '+${order.base}"></p>
+    <p th:text="'Topping: '+${order.topping}"></p>
+    <p th:text="'Status: '+${order.status}"></p>
+
+</div>
+
+<table>
+    <tr>
+        <th>UpVote Count</th>
+        <th>Title</th>
+    </tr>
+    <tr th:each="post: ${postList}">
+        <td><form th:action="'/upvote/' + ${post.id}" method="post">
+            <button type="submit" name="upvote"> + </button>
+        </form></td>
+        <td><form th:action="'/downvote/' + ${post.id}" method="post">
+            <button type="submit" name="downvote"> - </button>
+        </form></td>
+        <td th:text="${post.upvotecount}"></td>
+        <td><a th:text="${post.title}" th:href="@{/view-post/{id}(id = ${post.id})}"></a></td>
+    </tr>
+</table>
+
+<div>Base:</div>
+<div th:each="base: ${baseList}">
+    <input name="base" type="radio" id="base" th:value="${base.name}">
+    <label for="base" th:text="${base.name}"
+    ></label><br>
+</div>
+
+<br>
+
+<label for="topping">Toppings:</label><br>
+<select name="topping" id="topping">
+    <option th:each="topping: ${toppingList}"
+            th:text="${topping.name}"
+            th:value="${topping.name}"></option>
+</select>
+
+
+</body>
+</html>

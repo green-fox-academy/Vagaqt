@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome Takeout App</title>
+</head>
+
+<body>
+
+<div th:unless="${orderExist}" th:text="'Cant find order with ID: '+${order}"></div>
+<div th:if="${orderExist}">
+<h2>Order details</h2>
+<p th:text="'Name: '+${order.name}"></p>
+<p th:text="'Address: '+${order.address}"></p>
+<p th:text="'Base: '+${order.base}"></p>
+<p th:text="'Topping: '+${order.topping}"></p>
+<p th:text="'Status: '+${order.status}"></p>
+
+</div>
+</body>
+</html>
